@@ -17,9 +17,9 @@ const Certifications = () => {
                 background: "linear-gradient(135deg, #121212, #2c2c2c, #121212)",
             }}
         >
-            <div className="container mx-auto flex flex-col md:flex-row items-start">
+            <div className="container mx-auto flex flex-col md:flex-row flex-wrap items-start px-4"> {/* Added flex-wrap and px-4 */}
                 {/* Left Section - Text Content */}
-                <div className="w-full md:w-1/2 pr-12 mb-8 md:mb-0 px-6"> 
+                <div className="w-full md:w-1/2 pr-0 md:pr-12 mb-8 md:mb-0"> {/* Removed px-6 */}
                     <h2 className="text-3xl font-semibold mb-4">
                         Let me <span className="text-blue-500">introduce</span> myself
                     </h2>
@@ -38,9 +38,9 @@ const Certifications = () => {
                 </div>
 
                 {/* Right Section - Certification Box */}
-                <div className="w-full md:w-1/2 flex justify-end"> 
+                <div className="w-full md:w-1/2 mt-8 md:mt-0"> {/* Added mt-8 for spacing */}
                     <div
-                        className="rounded-lg p-4 shadow-lg max-w-[400px] ml-auto"
+                        className="rounded-lg p-4 shadow-lg max-w-full md:max-w-[400px]" // Adjusted max-w
                         style={{ background: "linear-gradient(135deg, #121212, #2c2c2c, #121212)" }}
                     >
                         {/* Terminal-like Header */}

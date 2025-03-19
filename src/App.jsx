@@ -4,12 +4,14 @@ import Navbar from "./components/Navbar";
 import Skills from "./components/Skills";
 import Projects from './components/Projects/Projects';
 import Home from "./components/Home";
+import Cursor from './components/Cursor';
 
 function App() {
   return (
     <Router>
       <div className=" min-h-screen text-white">
         <Navbar />
+        <Cursor/>
       
         <Routes>
           <Route path="/" element={<Home />} />
