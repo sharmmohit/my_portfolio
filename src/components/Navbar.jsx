@@ -120,7 +120,7 @@ const Navbar = () => {
               {/* Download CV Button for Mobile */}
               <motion.a
                 href={resumeUrl}
-                download="Mohit_Sharma_Resume.pdf" // Optional: specify download filename
+                download="Resume.pdf" 
                 variants={resumeButtonVariants}
                 initial="initial"
                 whileHover="hover"
