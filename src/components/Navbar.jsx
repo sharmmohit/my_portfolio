@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import { FaDownload } from "react-icons/fa"; // Import the download icon
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const resumeUrl = "./Resume.pdf";
 
   // Toggle the drawer
   const toggleDrawer = () => {
@@ -27,7 +29,13 @@ const Navbar = () => {
     }),
   };
 
-  const navItems = ["Home", "About", "Projects", "Resume"];
+  const resumeButtonVariants = {
+    initial: { scale: 1, opacity: 0.9 },
+    hover: { scale: 1.05, opacity: 1, transition: { duration: 0.3, ease: "easeInOut" } },
+    tap: { scale: 0.95 },
+  };
+
+  const navItems = ["Home", "About", "Projects"];
 
   return (
     <nav className="text-white p-4 fixed top-0 w-full z-50 shadow-lg"
@@ -54,7 +62,7 @@ const Navbar = () => {
         </button>
 
         {/* Desktop Nav with Underline Hover Effect */}
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden md:flex space-x-6 items-center">
           {navItems.map((item, index) => (
             <Link
               key={index}
@@ -65,6 +73,19 @@ const Navbar = () => {
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
             </Link>
           ))}
+          {/* Download CV Button for Desktop */}
+          <motion.a
+            href={resumeUrl}
+            download="Resume.pdf" // Optional: specify download filename
+            variants={resumeButtonVariants}
+            initial="initial"
+            whileHover="hover"
+            whileTap="tap"
+            className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-2 px-4 rounded-md shadow-md flex items-center space-x-2"
+          >
+            <FaDownload className="h-5 w-5" />
+            <span>Download CV</span>
+          </motion.a>
         </div>
 
         {/* Mobile Drawer */}
@@ -96,6 +117,20 @@ const Navbar = () => {
                   </Link>
                 </motion.div>
               ))}
+              {/* Download CV Button for Mobile */}
+              <motion.a
+                href={resumeUrl}
+                download="Mohit_Sharma_Resume.pdf" // Optional: specify download filename
+                variants={resumeButtonVariants}
+                initial="initial"
+                whileHover="hover"
+                whileTap="tap"
+                className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-md shadow-md flex items-center space-x-2"
+                onClick={() => setIsOpen(false)}
+              >
+                <FaDownload className="h-6 w-6" />
+                <span>Download CV</span>
+              </motion.a>
             </motion.div>
           )}
         </AnimatePresence>
@@ -105,4 +140,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

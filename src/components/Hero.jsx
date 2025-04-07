@@ -35,6 +35,7 @@ const Hero = () => {
       className="text-white py-12 flex justify-center items-center h-[60vh]" // Adjusted height and padding
       style={{
         background: 'linear-gradient(135deg, #121212, #2c2c2c, #121212)',
+        backgroundColor: '#121212', // Fallback color if gradient doesn't fully cover
       }}
     >
       <div className="container mx-auto flex flex-col md:flex-row items-center px-4"> {/* Added px-4 for padding */}

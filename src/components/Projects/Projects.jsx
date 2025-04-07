@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import project3 from "./notes_error.png";
 import project4 from "./weather.png";
@@ -18,7 +18,7 @@ const Projects = () => {
       githubLink: "https://github.com/your-github-repo-1",
       liveLink: "https://your-live-link-1",
       image: project4,
-      techStack: ["MERN Stack", "JavaScript", "APIs"],
+      techStack: ["MERN", "JavaScript", "APIs"],
     },
     {
       title: "NOTES ERROR",
@@ -82,6 +82,7 @@ const Projects = () => {
         className="text-white py-16"
         style={{
           background: "linear-gradient(135deg, #121212, #2c2c2c, #121212)",
+          marginTop: '4rem', // Added margin-top to create space below the navbar
         }}
       >
         <div className="container mx-auto px-4">
@@ -101,7 +102,7 @@ const Projects = () => {
               <motion.button
                 key={index}
                 onClick={() => setActiveTab(techStack)}
-                className={`py-2 px-4 rounded-lg border border-blue-500 transition-all duration-300 transform 
+                className={`py-2 px-4 rounded-lg border border-blue-500 transition-all duration-300 transform
                   ${
                     activeTab === techStack
                       ? "bg-white text-black" // Active state

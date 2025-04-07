@@ -16,6 +16,7 @@ import {
   SiMongodb,
 } from "react-icons/si";
 import FooterBottom from "./FooterBottom";
+import profileImg from './mohit.jpg';
 
 const Skills = () => {
   const skills = [
@@ -34,7 +35,11 @@ const Skills = () => {
 
   const boxVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   const textVariants = {
@@ -48,9 +53,26 @@ const Skills = () => {
         className="text-white py-16"
         style={{
           background: "linear-gradient(135deg, #121212, #2c2c2c, #121212)",
+          marginTop: "4rem",
         }}
       >
         <div className="container mx-auto px-4">
+          {/* Floating Profile Image */}
+          <div className="flex justify-center mb-10">
+            <motion.img
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: [20, 0, 20] }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              src={profileImg}
+              alt="Mohit Sharma"
+              className="rounded-2xl border-4 border-cyan-400 shadow-lg w-64 h-auto object-cover"
+            />
+          </div>
+
           {/* Know Who I'M Section */}
           <motion.div
             initial="hidden"
@@ -60,7 +82,7 @@ const Skills = () => {
           >
             <h2 className="text-4xl font-semibold mb-4">Know Who I'M</h2>
             <p className="text-lg mb-2">
-              Hi Everyone, I am <span className="cyan-500">Mohit Sharma</span> from
+              Hi Everyone, I am <span className="text-cyan-500">Mohit Sharma</span> from
               Noida, India.
             </p>
             <p className="text-lg">
@@ -93,6 +115,8 @@ const Skills = () => {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
       <FooterBottom
         style={{
           background: "linear-gradient(135deg, #121212, #2c2c2c, #121212)",
