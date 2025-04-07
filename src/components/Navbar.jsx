@@ -76,7 +76,7 @@ const Navbar = () => {
           {/* Download CV Button for Desktop */}
           <motion.a
             href={resumeUrl}
-            download="https://drive.google.com/file/d/1Z2pzl7cVBe76gBBqZcAMjAMa5uFrlExP/view?usp=sharing" // Optional: specify download filename
+            download="Resume.pdf" // Optional: specify download filename
             variants={resumeButtonVariants}
             initial="initial"
             whileHover="hover"
@@ -120,7 +120,7 @@ const Navbar = () => {
               {/* Download CV Button for Mobile */}
               <motion.a
                 href={resumeUrl}
-                download="https://drive.google.com/file/d/1Z2pzl7cVBe76gBBqZcAMjAMa5uFrlExP/view?usp=sharing" 
+                download="Resume.pdf" 
                 variants={resumeButtonVariants}
                 initial="initial"
                 whileHover="hover"
