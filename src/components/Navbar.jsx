@@ -6,7 +6,7 @@ import { FaDownload } from "react-icons/fa"; // Import the download icon
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const resumeUrl = "./Resume.pdf";
+  const resumeUrl = "https://drive.google.com/file/d/1Z2pzl7cVBe76gBBqZcAMjAMa5uFrlExP/view?usp=sharing";
 
   // Toggle the drawer
   const toggleDrawer = () => {
@@ -76,7 +76,7 @@ const Navbar = () => {
           {/* Download CV Button for Desktop */}
           <motion.a
             href={resumeUrl}
-            download="Resume.pdf" // Optional: specify download filename
+            download="https://drive.google.com/file/d/1Z2pzl7cVBe76gBBqZcAMjAMa5uFrlExP/view?usp=sharing" // Optional: specify download filename
             variants={resumeButtonVariants}
             initial="initial"
             whileHover="hover"
@@ -120,7 +120,7 @@ const Navbar = () => {
               {/* Download CV Button for Mobile */}
               <motion.a
                 href={resumeUrl}
-                download="Resume.pdf" 
+                download="https://drive.google.com/file/d/1Z2pzl7cVBe76gBBqZcAMjAMa5uFrlExP/view?usp=sharing" 
                 variants={resumeButtonVariants}
                 initial="initial"
                 whileHover="hover"
