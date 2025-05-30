@@ -6,12 +6,48 @@ import project4 from "./weather.png";
 import project5 from "./signature.png";
 import project6 from "./food.png";
 import project7 from "./news_research.png";
+import project8 from "./cropboom.png";
+import project9 from "./chat.png";
+import project10 from "./tripplan.png";
+import project11 from "./travel.png";
 import FooterBottom from "../FooterBottom";
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState("All");
 
   const projects = [
+    {
+      title: "Travel Booking System",
+      description: "AI Powered Farmer Online Crop Marketplace.",
+      githubLink: "https://github.com/sharmmohit/CropBoom-AI-Crop-Marketplace",
+      liveLink: "https://your-live-link-3",
+      image: project11,
+      techStack: ["React.js","Tailwind CSS", "AI", "APIs"],
+    },
+     {
+      title: "Trip Planner",
+      description: "AI Powered Farmer Online Crop Marketplace.",
+      githubLink: "https://github.com/sharmmohit/CropBoom-AI-Crop-Marketplace",
+      liveLink: "https://your-live-link-3",
+      image: project10,
+      techStack: ["React.js","Tailwind CSS", "AI", "APIs"],
+    },
+     {
+      title: "CropBoom",
+      description: "AI Powered Farmer Online Crop Marketplace.",
+      githubLink: "https://github.com/sharmmohit/CropBoom-AI-Crop-Marketplace",
+      liveLink: "https://your-live-link-3",
+      image: project9,
+      techStack: ["React.js","Tailwind CSS", "AI", "APIs"],
+    },
+     {
+      title: "CropBoom",
+      description: "AI Powered Farmer Online Crop Marketplace.",
+      githubLink: "https://github.com/sharmmohit/CropBoom-AI-Crop-Marketplace",
+      liveLink: "https://your-live-link-3",
+      image: project8,
+      techStack: ["React.js","Tailwind CSS", "AI", "APIs"],
+    },
     {
       title: "WEATHER APP",
       description: "A weather app built using APIs to fetch live weather data.",
@@ -65,6 +101,7 @@ const Projects = () => {
     "AI",
     "Bootstrap",
     "CSS TEMPLATES",
+    "Tailwind CSS",
     "Python",
     "LLM",
   ];
