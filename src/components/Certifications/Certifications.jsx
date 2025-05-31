@@ -11,64 +11,102 @@ import cert4 from './accenture.jpg';
 
 const Certifications = () => {
     return (
-        <section
-            className="text-white py-16"
-            style={{
-                background: "linear-gradient(135deg, #121212, #2c2c2c, #121212)",
-            }}
-        >
-            <div className="container mx-auto flex flex-col md:flex-row flex-wrap items-start px-4"> {/* Added flex-wrap and px-4 */}
+        <section className="relative overflow-hidden text-white py-16 bg-black">
+            {/* Stars background */}
+            <div className="absolute inset-0 overflow-hidden">
+                {[...Array(120)].map((_, i) => {
+                    const size = Math.random() * 2;
+                    const left = `${Math.random() * 100}%`;
+                    const top = `${Math.random() * 100}%`;
+                    const opacity = Math.random();
+                    const animationDelay = `${Math.random() * 5}s`;
+                    const animationDuration = `${5 + Math.random() * 10}s`;
+                    
+                    return (
+                        <div
+                            key={i}
+                            className="absolute rounded-full bg-white"
+                            style={{
+                                width: `${size}px`,
+                                height: `${size}px`,
+                                left,
+                                top,
+                                opacity,
+                                animation: `twinkle ${animationDuration} infinite ${animationDelay}`,
+                            }}
+                        />
+                    );
+                })}
+            </div>
+
+            <div className="container mx-auto flex flex-col md:flex-row flex-wrap items-start px-4 relative z-10">
                 {/* Left Section - Text Content */}
-                <div className="w-full md:w-1/2 pr-0 md:pr-12 mb-8 md:mb-0"> {/* Removed px-6 */}
-                    <h2 className="text-3xl font-semibold mb-4">
-                        Let me <span className="text-blue-500">introduce</span> myself
+                <div className="w-full md:w-1/2 pr-0 md:pr-12 mb-8 md:mb-0">
+                    <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+                        Let me <span className="text-blue-400">introduce</span> myself
                     </h2>
-                    <p className="text-lg">
-                        I fell in love with programming and I have at least learnt something, I think… 🤷‍♂️
-                    </p>
-                    <p className="text-lg mt-4">
-                        I am fluent in classics like C++, Javascript and MERN Stack.
-                    </p>
-                    <p className="text-lg mt-4">
-                        My field of Interest's are building new Web Technologies and Products and also interested in Algorithms.
-                    </p>
-                    <p className="text-lg mt-4">
-                        Whenever possible, I also apply my passion for developing products with Node.js and Modern Javascript Library and Frameworks like React.js.
-                    </p>
+                    <div className="space-y-4">
+                        <p className="text-lg text-gray-300">
+                            I fell in love with programming and I have at least learnt something, I think... 🤷‍♂️
+                        </p>
+                        <p className="text-lg text-gray-300">
+                            I am fluent in classics like <span className="text-blue-300">C++</span>, <span className="text-yellow-300">JavaScript</span> and <span className="text-green-300">MERN Stack</span>.
+                        </p>
+                        <p className="text-lg text-gray-300">
+                            My field of interest's are building new <span className="text-purple-300">Web Technologies</span> and <span className="text-blue-300">Products</span>, and also interested in <span className="text-green-300">Algorithms</span>.
+                        </p>
+                        <p className="text-lg text-gray-300">
+                            Whenever possible, I also apply my passion for developing products with <span className="text-green-400">Node.js</span> and modern JavaScript libraries and frameworks like <span className="text-blue-400">React.js</span>.
+                        </p>
+                    </div>
                 </div>
 
                 {/* Right Section - Certification Box */}
-                <div className="w-full md:w-1/2 mt-8 md:mt-0"> {/* Added mt-8 for spacing */}
+                <div className="w-full md:w-1/2 mt-8 md:mt-0">
                     <div
-                        className="rounded-lg p-4 shadow-lg max-w-full md:max-w-[400px]" // Adjusted max-w
-                        style={{ background: "linear-gradient(135deg, #121212, #2c2c2c, #121212)" }}
+                        className="rounded-lg p-0 shadow-xl overflow-hidden max-w-full md:max-w-[450px]"
+                        style={{ 
+                            background: "rgba(30, 30, 30, 0.7)",
+                            backdropFilter: "blur(10px)",
+                            border: "1px solid rgba(100, 100, 255, 0.2)"
+                        }}
                     >
                         {/* Terminal-like Header */}
-                        <div className="flex items-center bg-gray-800 rounded-t-lg p-2">
-                            <div className="h-3 w-3 rounded-full bg-red-500 mr-2"></div>
-                            <div className="h-3 w-3 rounded-full bg-yellow-500 mr-2"></div>
-                            <div className="h-3 w-3 rounded-full bg-green-500 mr-4"></div>
-                            <span className="text-white font-mono text-sm">bash</span>
+                        <div className="flex items-center bg-gray-900 p-3 border-b border-gray-700">
+                            <div className="flex space-x-2 mr-4">
+                                <div className="h-3 w-3 rounded-full bg-red-500"></div>
+                                <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
+                                <div className="h-3 w-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <span className="text-gray-300 font-mono text-sm">certifications --view</span>
                         </div>
 
                         {/* Swiper Certification Carousel */}
-                        <div className="p-3">
+                        <div className="p-4">
                             <Swiper
                                 slidesPerView={1}
-                                spaceBetween={10}
-                                pagination={{ clickable: true }}
+                                spaceBetween={20}
+                                pagination={{ 
+                                    clickable: true,
+                                    bulletClass: 'swiper-pagination-bullet bg-gray-600',
+                                    bulletActiveClass: 'swiper-pagination-bullet-active !bg-blue-500'
+                                }}
                                 modules={[Pagination, Autoplay]}
-                                autoplay={{ delay: 3000, disableOnInteraction: false }}
+                                autoplay={{ 
+                                    delay: 3000, 
+                                    disableOnInteraction: false,
+                                    pauseOnMouseEnter: true
+                                }}
                                 loop={true}
-                                className="mySwiper"
+                                className="mySwiper rounded-lg overflow-hidden"
                             >
                                 {[cert1, cert2, cert3, cert4].map((cert, index) => (
                                     <SwiperSlide key={index}>
-                                        <div className="w-full mx-auto">
+                                        <div className="w-full mx-auto p-1">
                                             <img
                                                 src={cert}
                                                 alt={`Certificate ${index + 1}`}
-                                                className="w-full h-auto rounded-lg"
+                                                className="w-full h-auto rounded-lg border border-gray-700 shadow-lg transition-transform duration-500 hover:scale-105"
                                             />
                                         </div>
                                     </SwiperSlide>
@@ -78,6 +116,24 @@ const Certifications = () => {
                     </div>
                 </div>
             </div>
+
+            {/* CSS for the twinkling stars */}
+            <style jsx>{`
+                @keyframes twinkle {
+                    0% { opacity: 0.2; }
+                    50% { opacity: 1; }
+                    100% { opacity: 0.2; }
+                }
+                .swiper-pagination-bullet {
+                    width: 10px;
+                    height: 10px;
+                    opacity: 1;
+                }
+                .swiper-pagination-bullet-active {
+                    width: 30px;
+                    border-radius: 5px;
+                }
+            `}</style>
         </section>
     );
 };
