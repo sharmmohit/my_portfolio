@@ -1,19 +1,43 @@
 import React, { useState } from "react";
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaPaperPlane } from "react-icons/fa";
 
 const Footer = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here (e.g., send email, save to database)
-    console.log("Form submitted:", { name, email, message });
-    // Reset form fields
-    setName("");
-    setEmail("");
-    setMessage("");
+    setIsLoading(true);
+
+    // Using Google Forms as a "backend" (frontend-only solution)
+    const formData = new FormData();
+    formData.append("entry.835906609", name); // Replace with your Google Form field IDs
+    formData.append("entry.2016022936", email);
+    formData.append("entry., message);
+
+    fetch("https://docs.google.comforms/d/e/1FAIpQLSdroRyIUDSnDbR3pi_0pVRwuJ70zBqXCFijVo32tkXyEjhUKg/formResponse", { // Replace with your Google Form URL
+      method: "POST",
+      body: formData,
+      mode: "no-cors" // Important for Google Forms to work
+    })
+    .then(() => {
+      console.log("Form submitted to Google Sheets");
+      setIsSubmitted(true);
+      setIsLoading(false);
+      setName("");
+      setEmail("");
+      setMessage("");
+      
+      // Reset submission status after 3 seconds
+      setTimeout(() => setIsSubmitted(false), 3000);
+    })
+    .catch((error) => {
+      console.error("Error submitting form:", error);
+      setIsLoading(false);
+    });
   };
 
   return (
@@ -98,6 +122,7 @@ const Footer = () => {
                   onChange={(e) => setName(e.target.value)}
                   className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
                   required
+                  disabled={isLoading}
                 />
               </div>
               <div className="mb-4">
@@ -108,6 +133,7 @@ const Footer = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
                   required
+                  disabled={isLoading}
                 />
               </div>
               <div className="mb-4">
@@ -118,14 +144,29 @@ const Footer = () => {
                   rows="4"
                   className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
                   required
+                  disabled={isLoading}
                 ></textarea>
               </div>
-              <button
-                type="submit"
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white py-2 px-6 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg"
-              >
-                Send Message
-              </button>
+              {isSubmitted ? (
+                <div className="text-green-400 mb-4">
+                  Message sent successfully!
+                </div>
+              ) : (
+                <button
+                  type="submit"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white py-2 px-6 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center mx-auto"
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    'Sending...'
+                  ) : (
+                    <>
+                      <FaPaperPlane className="mr-2" />
+                      Send Message
+                    </>
+                  )}
+                </button>
+              )}
             </form>
           </div>
         </div>

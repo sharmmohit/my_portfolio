@@ -39,9 +39,9 @@ const Certifications = () => {
                 })}
             </div>
 
-            <div className="container mx-auto flex flex-col md:flex-row flex-wrap items-start px-4 relative z-10">
+            <div className="container mx-auto flex flex-col md:flex-row items-center px-4 relative z-10">
                 {/* Left Section - Text Content */}
-                <div className="w-full md:w-1/2 pr-0 md:pr-12 mb-8 md:mb-0">
+                <div className="w-full md:w-1/2 pr-0 md:pr-8 mb-8 md:mb-0">
                     <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
                         Let me <span className="text-blue-400">introduce</span> myself
                     </h2>
@@ -61,10 +61,10 @@ const Certifications = () => {
                     </div>
                 </div>
 
-                {/* Right Section - Certification Box */}
-                <div className="w-full md:w-1/2 mt-8 md:mt-0">
+                {/* Right Section - Certification Box - Now Properly Centered */}
+                <div className="w-full md:w-1/2 flex justify-center md:justify-end">
                     <div
-                        className="rounded-lg p-0 shadow-xl overflow-hidden max-w-full md:max-w-[450px]"
+                        className="rounded-lg shadow-xl overflow-hidden w-full max-w-[320px] md:max-w-[380px]"
                         style={{ 
                             background: "rgba(30, 30, 30, 0.7)",
                             backdropFilter: "blur(10px)",
@@ -74,18 +74,18 @@ const Certifications = () => {
                         {/* Terminal-like Header */}
                         <div className="flex items-center bg-gray-900 p-3 border-b border-gray-700">
                             <div className="flex space-x-2 mr-4">
-                                <div className="h-3 w-3 rounded-full bg-red-500"></div>
-                                <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
-                                <div className="h-3 w-3 rounded-full bg-green-500"></div>
+                                <div className="h-2 w-2 rounded-full bg-red-500"></div>
+                                <div className="h-2 w-2 rounded-full bg-yellow-500"></div>
+                                <div className="h-2 w-2 rounded-full bg-green-500"></div>
                             </div>
-                            <span className="text-gray-300 font-mono text-sm">certifications --view</span>
+                            <span className="text-gray-300 font-mono text-xs">certifications --view</span>
                         </div>
 
                         {/* Swiper Certification Carousel */}
-                        <div className="p-4">
+                        <div className="p-2">
                             <Swiper
                                 slidesPerView={1}
-                                spaceBetween={20}
+                                spaceBetween={10}
                                 pagination={{ 
                                     clickable: true,
                                     bulletClass: 'swiper-pagination-bullet bg-gray-600',
@@ -98,15 +98,15 @@ const Certifications = () => {
                                     pauseOnMouseEnter: true
                                 }}
                                 loop={true}
-                                className="mySwiper rounded-lg overflow-hidden"
+                                className="mySwiper rounded-lg"
                             >
                                 {[cert1, cert2, cert3, cert4].map((cert, index) => (
                                     <SwiperSlide key={index}>
-                                        <div className="w-full mx-auto p-1">
+                                        <div className="w-full mx-auto">
                                             <img
                                                 src={cert}
                                                 alt={`Certificate ${index + 1}`}
-                                                className="w-full h-auto rounded-lg border border-gray-700 shadow-lg transition-transform duration-500 hover:scale-105"
+                                                className="w-full h-auto rounded-md border border-gray-700 shadow-sm"
                                             />
                                         </div>
                                     </SwiperSlide>
@@ -125,13 +125,13 @@ const Certifications = () => {
                     100% { opacity: 0.2; }
                 }
                 .swiper-pagination-bullet {
-                    width: 10px;
-                    height: 10px;
+                    width: 8px;
+                    height: 8px;
                     opacity: 1;
                 }
                 .swiper-pagination-bullet-active {
-                    width: 30px;
-                    border-radius: 5px;
+                    width: 24px;
+                    border-radius: 4px;
                 }
             `}</style>
         </section>
