@@ -22,7 +22,7 @@ const Projects = () => {
       githubLink: "https://github.com/sharmmohit/MyTripPlan",
       liveLink: "https://your-live-link-3",
       image: project11,
-      techStack: ["React.js","Tailwind CSS", "AI", "APIs"],
+      techStack: ["React.js","Tailwind CSS","Node.js", "AI", "APIs"],
     },
     {
       title: "Trip Planner",
@@ -30,15 +30,15 @@ const Projects = () => {
       githubLink: "https://github.com/sharmmohit/CropBoom-AI-Crop-Marketplace",
       liveLink: "https://your-live-link-3",
       image: project10,
-      techStack: ["React.js","Tailwind CSS", "AI", "APIs"],
+      techStack: ["React.js","Tailwind CSS","Node.js", "AI", "APIs"],
     },
     {
-      title: "CropBoom",
-      description: "AI Powered Farmer Online Crop Marketplace.",
+      title: "Financial Assistant",
+      description: "AI Financial Assistant Chatbox.",
       githubLink: "https://github.com/sharmmohit/CropBoom-AI-Crop-Marketplace",
       liveLink: "https://your-live-link-3",
       image: project9,
-      techStack: ["React.js","Tailwind CSS", "AI", "APIs"],
+      techStack: ["React.js","Node.js","AI", "APIs"],
     },
     {
       title: "CropBoom",
@@ -98,6 +98,7 @@ const Projects = () => {
     "CSS",
     "APIs",
     "React.js",
+    "Node.js",
     "AI",
     "Bootstrap",
     "CSS TEMPLATES",
@@ -105,6 +106,7 @@ const Projects = () => {
     "Python",
     "LLM",
     "MySql"
+
   ];
 
   const filteredProjects = projects.filter((project) =>
