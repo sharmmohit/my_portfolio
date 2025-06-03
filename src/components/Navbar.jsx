@@ -2,18 +2,16 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import { FaDownload } from "react-icons/fa"; // Import the download icon
+import { FaDownload } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const resumeUrl = "https://drive.google.com/file/d/1Z2pzl7cVBe76gBBqZcAMjAMa5uFrlExP/view?usp=sharing";
 
-  // Toggle the drawer
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
   };
 
-  // Variants for animations
   const menuVariants = {
     hidden: { y: "-100%", opacity: 0 },
     visible: { y: "0%", opacity: 1, transition: { duration: 0.5, ease: "easeInOut" } },
@@ -38,11 +36,14 @@ const Navbar = () => {
   const navItems = ["Home", "About", "Projects"];
 
   return (
-    <nav className="text-white p-4 fixed top-0 w-full z-50 shadow-lg"
-      style={{ background: "linear-gradient(135deg, #121212, #2c2c2c, #121212)" }}
+    <nav className="text-white p-4 fixed top-0 w-full z-50"
+      style={{ 
+        background: "linear-gradient(135deg, #121212, #2c2c2c, #121212)",
+        boxShadow: "0 4px 30px rgba(0, 0, 0, 0.5)"
+      }}
     >
       <div className="container mx-auto flex justify-between items-center relative">
-        {/* Logo (Always Visible) */}
+        {/* Logo */}
         <div className="flex items-center z-50">
           <span className="text-4xl font-semibold mr-1">Mohit</span>
           <span className="text-blue-500 text-2xl">.</span>
@@ -61,7 +62,7 @@ const Navbar = () => {
           )}
         </button>
 
-        {/* Desktop Nav with Underline Hover Effect */}
+        {/* Desktop Nav */}
         <div className="hidden md:flex space-x-6 items-center">
           {navItems.map((item, index) => (
             <Link
@@ -73,15 +74,15 @@ const Navbar = () => {
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
             </Link>
           ))}
-          {/* Download CV Button for Desktop */}
+          {/* Download CV Button */}
           <motion.a
             href={resumeUrl}
-            download="Resume.pdf" // Optional: specify download filename
+            download="Resume.pdf"
             variants={resumeButtonVariants}
             initial="initial"
             whileHover="hover"
             whileTap="tap"
-            className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-2 px-4 rounded-md shadow-md flex items-center space-x-2"
+            className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-2 px-4 rounded-md shadow-lg flex items-center space-x-2"
           >
             <FaDownload className="h-5 w-5" />
             <span>Download CV</span>
@@ -117,7 +118,6 @@ const Navbar = () => {
                   </Link>
                 </motion.div>
               ))}
-              {/* Download CV Button for Mobile */}
               <motion.a
                 href={resumeUrl}
                 download="Resume.pdf" 
@@ -125,7 +125,7 @@ const Navbar = () => {
                 initial="initial"
                 whileHover="hover"
                 whileTap="tap"
-                className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-md shadow-md flex items-center space-x-2"
+                className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-md shadow-lg flex items-center space-x-2"
                 onClick={() => setIsOpen(false)}
               >
                 <FaDownload className="h-6 w-6" />

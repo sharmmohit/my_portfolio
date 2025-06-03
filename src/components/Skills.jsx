@@ -33,56 +33,15 @@ const Skills = () => {
     { name: "C/C++", icon: <FaCuttlefish className="text-blue-600" /> },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const boxVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { 
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-        duration: 0.5
-      }
-    },
-    hover: {
-      scale: 1.1,
-      y: -10,
-      boxShadow: "0 10px 20px rgba(59, 130, 246, 0.3)",
-      transition: { duration: 0.2 }
-    }
-  };
-
-  const textVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { 
-        duration: 0.8,
-        ease: "easeOut"
-      } 
-    }
-  };
-
   return (
     <>
-      <section className="relative overflow-hidden text-white py-16 bg-black">
+      {/* Navbar Spacer */}
+      <div className="h-16"></div>
+      
+      <section className="relative overflow-hidden text-white py-12 bg-black">
         {/* Stars background */}
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(150)].map((_, i) => {
+          {[...Array(100)].map((_, i) => {
             const size = Math.random() * 2;
             const left = `${Math.random() * 100}%`;
             const top = `${Math.random() * 100}%`;
@@ -108,82 +67,141 @@ const Skills = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          {/* Floating Profile Image */}
+          {/* Profile Image with Cool Animation */}
           <motion.div 
-            className="flex justify-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
+            className="flex justify-center mb-10"
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ 
               opacity: 1, 
-              y: [0, 15, 0],
-              transition: {
+              scale: 1,
+              transition: { duration: 0.8 }
+            }}
+          >
+            <motion.div
+              className="relative"
+              animate={{
+                y: [0, 10, 0],
+                rotate: [0, 2, -2, 0],
+              }}
+              transition={{
                 y: {
                   duration: 6,
                   repeat: Infinity,
                   ease: "easeInOut"
                 },
-                opacity: { duration: 0.8 }
-              }
-            }}
-          >
-            <div className="relative">
+                rotate: {
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }
+              }}
+            >
               {/* Glow effect */}
-              <div className="absolute inset-0 rounded-2xl bg-cyan-400 blur-xl opacity-20 animate-pulse"></div>
+              <motion.div 
+                className="absolute inset-0 rounded-full bg-cyan-400 opacity-20 blur-xl"
+                animate={{
+                  scale: [1, 1.1, 1],
+                  opacity: [0.2, 0.3, 0.2]
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
               <img
                 src={profileImg}
                 alt="Mohit Sharma"
                 className="relative rounded-2xl border-4 border-cyan-400 shadow-lg w-64 h-auto object-cover z-10"
               />
-            </div>
+              {/* Floating particles */}
+              {[...Array(8)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute rounded-full bg-cyan-400"
+                  initial={{ 
+                    x: Math.random() * 40 - 20,
+                    y: Math.random() * 40 - 20,
+                    opacity: 0,
+                    scale: 0
+                  }}
+                  animate={{
+                    x: Math.random() * 80 - 40,
+                    y: Math.random() * 80 - 40,
+                    opacity: [0, 0.6, 0],
+                    scale: [0, 1, 0]
+                  }}
+                  transition={{
+                    duration: 4 + Math.random() * 3,
+                    repeat: Infinity,
+                    delay: Math.random() * 2,
+                    ease: "easeInOut"
+                  }}
+                  style={{
+                    width: `${Math.random() * 6 + 4}px`,
+                    height: `${Math.random() * 6 + 4}px`,
+                  }}
+                />
+              ))}
+            </motion.div>
           </motion.div>
 
           {/* Know Who I'M Section */}
           <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={textVariants}
-            className="text-center mb-16"
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ 
+              opacity: 1, 
+              y: 0,
+              transition: { 
+                duration: 0.8,
+                delay: 0.3
+              } 
+            }}
           >
-            <motion.h2 
-              className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600"
-              whileHover={{ scale: 1.02 }}
-            >
+            <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600">
               Know Who I'M
-            </motion.h2>
-            <motion.p 
-              className="text-xl mb-3 text-gray-300"
-              whileHover={{ x: 5 }}
-            >
+            </h2>
+            <p className="text-xl mb-3 text-gray-300">
               Hi Everyone, I am <span className="text-cyan-400 font-semibold">Mohit Sharma</span> from
-              Noida, India.
-            </motion.p>
-            <motion.p 
-              className="text-xl text-gray-300"
-              whileHover={{ x: 5 }}
-            >
+              Indore, India.
+            </p>
+            <p className="text-xl text-gray-300">
               I am currently pursuing my B.Tech in Computer Science from SVVV
               Indore (2022-2026).
-            </motion.p>
+            </p>
           </motion.div>
 
           {/* Professional Skillset Section */}
           <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
           >
-            <motion.h2 
-              className="text-3xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600"
-              variants={textVariants}
-            >
+            <h2 className="text-3xl font-bold mb-10 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
               Professional Skillset
-            </motion.h2>
+            </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-items-center">
               {skills.map((skill, index) => (
                 <motion.div
                   key={index}
-                  variants={boxVariants}
-                  whileHover="hover"
-                  className="p-6 rounded-xl transition-all duration-300"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ 
+                    opacity: 1, 
+                    y: 0,
+                    transition: { 
+                      delay: 0.7 + index * 0.1,
+                      type: "spring",
+                      stiffness: 100,
+                      damping: 10
+                    }
+                  }}
+                  whileHover={{
+                    scale: 1.1,
+                    y: -5,
+                    boxShadow: "0 10px 20px rgba(59, 130, 246, 0.3)",
+                  }}
+                  className="p-5 rounded-xl transition-all"
                   style={{ 
                     background: "rgba(30, 30, 30, 0.7)",
                     backdropFilter: "blur(10px)",
@@ -191,12 +209,12 @@ const Skills = () => {
                   }}
                 >
                   <div className="flex flex-col items-center">
-                    <motion.span 
-                      className="text-5xl mb-3"
+                    <motion.div
                       whileHover={{ rotate: 15, scale: 1.2 }}
+                      className="text-5xl mb-3"
                     >
                       {skill.icon}
-                    </motion.span>
+                    </motion.div>
                     <span className="text-gray-300 font-medium">{skill.name}</span>
                   </div>
                 </motion.div>
@@ -215,7 +233,6 @@ const Skills = () => {
         `}</style>
       </section>
 
-      {/* Footer */}
       <FooterBottom
         style={{
           background: "linear-gradient(135deg, #121212, #2c2c2c, #121212)",
