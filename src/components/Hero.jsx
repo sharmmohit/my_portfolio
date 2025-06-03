@@ -33,40 +33,17 @@ const Hero = () => {
     }
   }, [controls, inView]);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const textVariantsLeft = {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.1, 0.7, 0.3, 1]
-      }
-    }
-  };
-
   return (
     <motion.section
       ref={ref}
-      initial="hidden"
-      animate={controls}
-      variants={containerVariants}
-      className="relative overflow-hidden text-white flex justify-center items-center h-[70vh] bg-black"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      className="relative overflow-hidden text-white flex justify-center items-center h-[65vh] min-h-[500px] bg-black"
     >
       {/* Stars background */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(120)].map((_, i) => {
+        {[...Array(100)].map((_, i) => {
           const size = Math.random() * 2;
           const left = `${Math.random() * 100}%`;
           const top = `${Math.random() * 100}%`;
@@ -93,17 +70,23 @@ const Hero = () => {
 
       <div className="container mx-auto flex flex-col md:flex-row items-center px-4 relative z-10">
         {/* Left Side: Text Content */}
-        <motion.div 
-          className="md:w-1/2 mb-8 md:mb-0 text-center md:text-left"
-          variants={containerVariants}
-        >
+        <div className="md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
           <motion.h1
-            className="text-3xl md:text-5xl font-bold mb-4"
-            variants={textVariantsLeft}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-4xl md:text-5xl font-bold mb-4"
           >
             <span className="block">Hi There <motion.span 
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              animate={{ 
+                rotate: [0, 10, -10, 0],
+                scale: [1, 1.1, 1]
+              }}
+              transition={{ 
+                repeat: Infinity, 
+                duration: 2, 
+                ease: "easeInOut" 
+              }}
               className="inline-block"
             >👋</motion.span></span>
             I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
@@ -112,8 +95,10 @@ const Hero = () => {
           </motion.h1>
 
           <motion.div
-            className="text-xl md:text-2xl font-semibold mb-2 min-h-[2.5rem]"
-            variants={textVariantsLeft}
+            className="text-xl md:text-2xl font-semibold mb-6 min-h-[2.5rem]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
           >
             <motion.div
               key={developerText}
@@ -128,38 +113,84 @@ const Hero = () => {
               </span>
             </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
 
-        {/* Right Side: Circular Image */}
-        <motion.div 
-          className="md:w-1/2 flex justify-center mt-6 md:mt-0"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <div className="relative">
+        {/* Right Side: Enhanced Image Animation */}
+        <div className="md:w-1/2 flex justify-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative"
+          >
             {/* Glow effect */}
-            <div className="absolute inset-0 rounded-full bg-blue-500 blur-lg opacity-10"></div>
-            
-            {/* Main image with floating animation */}
-            <motion.img
-              src={image}
-              alt="Mohit Developer"
-              className="relative w-40 h-40 md:w-56 md:h-56 rounded-full border-2 border-white/20 shadow-lg z-10"
-              style={{
-                boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)"
-              }}
+            <motion.div
+              className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 opacity-20 blur-xl"
               animate={{
-                y: [0, 10, 0]
+                scale: [1, 1.1, 1],
+                opacity: [0.2, 0.3, 0.2]
               }}
               transition={{
-                duration: 6,
+                duration: 4,
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
             />
-          </div>
-        </motion.div>
+            
+            {/* Floating particles */}
+            {[...Array(8)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute rounded-full bg-cyan-400"
+                initial={{ 
+                  x: Math.random() * 40 - 20,
+                  y: Math.random() * 40 - 20,
+                  opacity: 0,
+                  scale: 0
+                }}
+                animate={{
+                  x: Math.random() * 80 - 40,
+                  y: Math.random() * 80 - 40,
+                  opacity: [0, 0.6, 0],
+                  scale: [0, 1, 0]
+                }}
+                transition={{
+                  duration: 4 + Math.random() * 3,
+                  repeat: Infinity,
+                  delay: Math.random() * 2,
+                  ease: "easeInOut"
+                }}
+                style={{
+                  width: `${Math.random() * 6 + 4}px`,
+                  height: `${Math.random() * 6 + 4}px`,
+                }}
+              />
+            ))}
+            
+            {/* Main image */}
+            <motion.img
+              src={image}
+              alt="Mohit Developer"
+              className="relative rounded-full border-4 border-cyan-400 shadow-xl w-48 h-48 md:w-56 md:h-56 object-cover z-10"
+              animate={{
+                y: [0, 10, 0],
+                rotate: [0, 2, -2, 0],
+              }}
+              transition={{
+                y: {
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                },
+                rotate: {
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }
+              }}
+            />
+          </motion.div>
+        </div>
       </div>
 
       {/* CSS for the twinkling stars */}
