@@ -16,7 +16,7 @@ const Footer = () => {
     const formData = new FormData();
     formData.append("entry.835906609", name); // Replace with your Google Form field IDs
     formData.append("entry.2016022936", email);
-    formData.append("entry., message);
+    
 
     fetch("https://docs.google.comforms/d/e/1FAIpQLSdroRyIUDSnDbR3pi_0pVRwuJ70zBqXCFijVo32tkXyEjhUKg/formResponse", { // Replace with your Google Form URL
       method: "POST",

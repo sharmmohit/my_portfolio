@@ -18,8 +18,8 @@ const Projects = () => {
   const projects = [
     {
       title: "Travel Booking System",
-      description: "AI Powered Farmer Online Crop Marketplace.",
-      githubLink: "https://github.com/sharmmohit/CropBoom-AI-Crop-Marketplace",
+      description: "A comprehensive application enabling users to seamlessly book flights,cabs ,buses and trains though a single,intuitive platform.",
+      githubLink: "https://github.com/sharmmohit/MyTripPlan",
       liveLink: "https://your-live-link-3",
       image: project11,
       techStack: ["React.js","Tailwind CSS", "AI", "APIs"],
@@ -83,7 +83,7 @@ const Projects = () => {
     {
       title: "NEWS RESEARCH TOOL",
       description: "A news research tool with AI-powered analysis.",
-      githubLink: "https://github.com/your-github-repo-5",
+      githubLink: "https://github.com/sharmmohit/News-Research-Tool",
       liveLink: "https://your-live-link-5",
       image: project7,
       techStack: ["Python", "AI", "LLM", "APIs"],
@@ -238,24 +238,14 @@ const Projects = () => {
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-lg flex items-center"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white py-2 px-4 rounded-lg flex items-center"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <FaGithub className="mr-2" />
                     GitHub
                   </motion.a>
-                  <motion.a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white py-2 px-4 rounded-lg flex items-center"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <FaExternalLinkAlt className="mr-2" />
-                    Live Demo
-                  </motion.a>
+                 
                 </div>
               </motion.div>
             ))}
