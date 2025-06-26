@@ -5,6 +5,7 @@ import Skills from "./components/Skills";
 import Projects from './components/Projects/Projects';
 import Home from "./components/Home";
 import Cursor from './components/Cursor';
+import Github from "./components/Github";
 
 function App() {
   return (
