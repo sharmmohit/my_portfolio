@@ -10,7 +10,9 @@ import project8 from "./cropboom.png";
 import project9 from "./chat.png";
 import project10 from "./tripplan.png";
 import project11 from "./travel.png";
+import project12 from "./text.png"
 import FooterBottom from "../FooterBottom";
+
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState("All");
@@ -88,6 +90,14 @@ const Projects = () => {
       image: project7,
       techStack: ["Python", "AI", "LLM", "APIs"],
     },
+     {
+      title: "Image-Text-Converter",
+      description: "An image-to-text converter web application built with Next.js and Tesseract.js.",
+      githubLink: "https://github.com/sharmmohit/image-to-text-converter",
+      liveLink: "https://candid-macaron-2ce0ed.netlify.app/",
+      image: project12,
+      techStack: ["Next.js", "Tesseract.js", "Tailwind CSS"],
+    },
   ];
 
   const techStacks = [
@@ -98,6 +108,7 @@ const Projects = () => {
     "CSS",
     "APIs",
     "React.js",
+    "Next.js",
     "Node.js",
     "AI",
     "Bootstrap",
