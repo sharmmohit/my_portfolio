@@ -18,15 +18,10 @@ const FooterBottom = () => {
   };
 
   return (
-    <div // Reduced padding, adjusted background, and font size
-      className="bg-gray-900 text-white py-6 text-center text-sm"
-      style={{
-        background: "linear-gradient(135deg, #121212, #2c2c2c, #121212)",
-      }}
-    >
+    <div className="bg-black text-white py-4 text-center text-sm">
       <div className="container mx-auto">
         <p className="mb-2">Designed and Developed by Mohit Sharma</p>
-        <div className="flex justify-center mt-4 space-x-4">
+        <div className="flex justify-center mt-2 space-x-4">
           {socialLinks.map((link, index) => (
             <motion.a
               key={index}
@@ -37,13 +32,13 @@ const FooterBottom = () => {
               initial="hidden"
               animate="visible"
               whileHover={{ scale: 1.2 }}
-              className="text-xl hover:text-gray-400" // Reduced icon size
+              className="text-xl hover:text-gray-400"
             >
               {link.icon}
             </motion.a>
           ))}
         </div>
-        <p className="mt-4">&copy; {new Date().getFullYear()} mvrx</p> {/* Added margin-top and reduced font size */}
+        <p className="mt-2">&copy; {new Date().getFullYear()} mvrx</p>
       </div>
     </div>
   );
