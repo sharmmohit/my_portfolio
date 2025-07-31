@@ -50,10 +50,10 @@ const Certifications = () => {
                             I fell in love with programming and I have at least learnt something, I think... 🤷‍♂️
                         </p>
                         <p className="text-lg text-gray-300">
-                            I am fluent in classics like <span className="text-blue-300">C++</span>, <span className="text-yellow-300">JavaScript</span> and <span className="text-green-300">MERN Stack</span>.
+                            I am fluent in classics like <span className="text-blue-300">C++</span>, <span className="text-yellow-300">JavaScript</span> and <span className="text-green-300">React.js</span>.
                         </p>
                         <p className="text-lg text-gray-300">
-                            My field of interest's are building new <span className="text-purple-300">Web Technologies</span> and <span className="text-blue-300">Products</span>, and also interested in <span className="text-green-300">Algorithms</span>.
+                            My field of interest's are building new <span className="text-purple-300">Web Technologies</span> and <span className="text-blue-300">Products</span>, and also interested in <span className="text-green-300">Large LanguageModels</span>.
                         </p>
                         <p className="text-lg text-gray-300">
                             Whenever possible, I also apply my passion for developing products with <span className="text-green-400">Node.js</span> and modern JavaScript libraries and frameworks like <span className="text-blue-400">React.js</span>.
