@@ -234,7 +234,7 @@ const Skills = () => {
               Indore, India.
             </p>
             <p className="text-xl text-gray-300">
-              I am currently pursuing my B.Tech in Computer Science from SVVV
+              I am currently pursuing my B.Tech in Computer Science & Engineering from SVVV
               Indore (2022-2026).
             </p>
           </motion.div>
